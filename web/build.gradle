@@ -1,0 +1,23 @@
+dependencies {
+    //web
+    compile("org.springframework.boot:spring-boot-starter-web:${spring_boot_version}")
+    //thymeleaf
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${spring_boot_version}")
+    //mybatis
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${spring_boot_mybatis_version}")
+    //mysql-connection
+    compile("mysql:mysql-connector-java:${mysql_connection_version}")
+    //排除spring-boot默认的HikariCP引入druid
+    compile("org.springframework.boot:spring-boot-starter-actuator:${spring_boot_version}")
+    compile("org.springframework.boot:spring-boot-starter-jdbc:${spring_boot_version}"){
+        exclude group: 'com.zaxxer', module: 'HikariCP'
+    }
+    compile("com.alibaba:druid-spring-boot-starter:${druid_version}")
+
+    //lombok
+    compile("org.projectlombok:lombok:${lombok_version}")
+    //swagger2
+    implementation("io.springfox:springfox-swagger2:2.9.2")
+    implementation("io.springfox:springfox-swagger-ui:2.9.2")
+
+}
