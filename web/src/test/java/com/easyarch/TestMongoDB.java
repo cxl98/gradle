@@ -53,16 +53,17 @@ public class TestMongoDB {
 //        adminDao.insertAdmin(admin);
 //        Admin admin1 = adminDao.findAdminByUsernameAndPassword("admin", DigestUtils.md5DigestAsHex("admin".getBytes()));
 //        System.out.println(admin1);
-        User user=new User();
-        user.setUsername("0301180101");
-        user.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
-        user.setAge(20);
-        user.setMajor("计算机科学与技术");
-        user.setGender(0);
-        user.setZClass("1701");
-        user.setPhone("13600000000");
-        userDao.insertUser(user);
-
+//        User user=new User();
+//        user.setUsername("0301180101");
+//        user.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
+//        user.setAge(20);
+//        user.setMajor("计算机科学与技术");
+//        user.setGender(0);
+//        user.setZClass("1701");
+//        user.setPhone("13600000000");
+//        userDao.insertUser(user);
+        User byNameAndPassword = userDao.findByNameAndPassword("0301180101", DigestUtils.md5DigestAsHex("123456".getBytes()));
+        System.out.println(byNameAndPassword);
     }
 
 }
