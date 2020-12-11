@@ -11,5 +11,5 @@ public interface AdminDao {
     @Select("select * from admin where username=#{username} and password=#{password}")
     Admin findAdminByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
     @Insert("insert into admin(username,password) values(#{username},#{password})")
-    int insertAdmin(Admin admin);
+    int insertAdmin(@Param("admin") Admin admin);
 }
