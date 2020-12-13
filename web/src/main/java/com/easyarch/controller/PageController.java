@@ -10,4 +10,9 @@ public class PageController {
     public String login(){
         return "first/Login";
     }
+
+    @RequestMapping("Register")//用户注册
+    public String register(){
+        return "first/Register";
+    }
 }
