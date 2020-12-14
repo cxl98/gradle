@@ -26,4 +26,27 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping(value = "addUser",method = RequestMethod.POST)
+    public Object add(String id,String password){
+        System.out.println("vvvvvvvv "+id);
+        user.setUsername(id);
+        user.setPassword(password);
+//        int i = userService.addUser(user);
+        if (1==1){
+            return "ok";
+        }
+        return 0;
+    }
+
+    @RequestMapping(value = "isused",method = RequestMethod.POST)
+    public String isUser(String id){
+        System.out.println("isUser "+id);
+        User byUsername = userService.findByUsername(0 + id);
+        if (byUsername!=null){
+            return "ok";
+        }
+        return "no";
+    }
+
+
 }

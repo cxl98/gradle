@@ -1,3 +1,5 @@
+
+
 buildscript {
     repositories {
         mavenLocal()
@@ -7,14 +9,19 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}")
     }
+
 }
 //project全局的版本及相关插件
 allprojects {
     group 'com.easy.cxl'
     version '1.0-SNAPSHOT'
     apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
 }
-
+bootJar{
+    archiveFileName ='gradle.jar'
+}
 subprojects {
     apply plugin: 'java'
     //指定jdk版本

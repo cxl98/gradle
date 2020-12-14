@@ -3,14 +3,19 @@ package com.easyarch;
 import com.easyarch.dao.AdminDao;
 import com.easyarch.dao.UserDao;
 import com.easyarch.entity.Admin;
+import com.easyarch.entity.Question;
 import com.easyarch.entity.User;
 import com.easyarch.mongo.QuestionRepository;
+import com.easyarch.util.LoadTxt;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.DigestUtils;
+
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -21,8 +26,7 @@ public class TestMongoDB {
     private AdminDao adminDao;
     @Autowired
     private UserDao userDao;
-
-//    @Before
+    @Before
 //    public void beforeTest(){questionRepository.deleteAll();}
     @Test
     public void save(){
@@ -44,9 +48,10 @@ public class TestMongoDB {
 //        answers.add(answer1);
 //        answers.add(answer2);
 //        System.out.println(answers);
-//        List<Question> all = questionRepository.findAll();
-
-//        System.out.println(all);
+        List<Question> questions = LoadTxt.ReadQuestions("Research_2");
+//        System.out.println(questions);
+        List<Question> questions1 = questionRepository.saveAll(questions);
+        System.out.println(questions1);
 //        Admin admin=new Admin();
 //        admin.setUsername("admin");
 //        admin.setPassword(DigestUtils.md5DigestAsHex("admin".getBytes()));
@@ -62,8 +67,8 @@ public class TestMongoDB {
 //        user.setZClass("1701");
 //        user.setPhone("13600000000");
 //        userDao.insertUser(user);
-        User byNameAndPassword = userDao.findByNameAndPassword("0301180101", DigestUtils.md5DigestAsHex("123456".getBytes()));
-        System.out.println(byNameAndPassword);
+//        User byNameAndPassword = userDao.findByNameAndPassword("0301180101", DigestUtils.md5DigestAsHex("123456".getBytes()));
+//        System.out.println(byNameAndPassword);
     }
 
 }
