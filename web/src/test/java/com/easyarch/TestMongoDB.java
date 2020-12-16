@@ -1,10 +1,7 @@
 package com.easyarch;
 
-import com.easyarch.dao.AdminDao;
 import com.easyarch.dao.UserDao;
-import com.easyarch.entity.Admin;
 import com.easyarch.entity.Question;
-import com.easyarch.entity.User;
 import com.easyarch.mongo.QuestionRepository;
 import com.easyarch.util.LoadTxt;
 import org.junit.Before;
@@ -13,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.DigestUtils;
 
 import java.util.List;
 
@@ -22,8 +18,6 @@ import java.util.List;
 public class TestMongoDB {
     @Autowired
     private QuestionRepository questionRepository;
-    @Autowired
-    private AdminDao adminDao;
     @Autowired
     private UserDao userDao;
     @Before
