@@ -28,6 +28,7 @@ public class QuestionController {
     @Autowired
     private JavaMailSender javaMailSender;
 
+
     @RequestMapping("show")
     public List<Question> showQuestions(int curr, int pageSize) {
         return questionService.showQuestion(curr, pageSize);
