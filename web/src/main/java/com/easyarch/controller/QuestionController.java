@@ -56,7 +56,7 @@ public class QuestionController {
     public String result(String id) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom("1799359457@qq.com");
-        mailMessage.setTo("3179087516@qq.com");
+        mailMessage.               setTo("3179087516@qq.com");
         User finished = userService.isFinished(id);
         mailMessage.setSubject(finished.getUsername());
         int scores = 0;
